@@ -63,3 +63,16 @@ class Stack {
     return this.storage[this.count - 1];
   }
 }
+
+const myStack = new Stack();
+
+myStack.push(1);
+myStack.push(2);
+console.log(myStack.peek()); // 2
+console.log(myStack.pop()); // 2
+console.log(myStack.peek()); // 1
+myStack.push("freeCodeCamp");
+console.log(myStack.size()); // 2
+console.log(myStack.peek()); // freeCodeCamp
+console.log(myStack.pop()); // freeCodeCamp
+console.log(myStack.peek()); // 1
