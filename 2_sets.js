@@ -2,6 +2,8 @@
  * Sets
  */
 
+// set은 중복 항목이 없고 값이 특정 순서가 아닌 경우를 제외하면 배열과 유사하다
+
 class mySet {
   constructor() {
     // the const collection will hold the set
@@ -18,6 +20,7 @@ class mySet {
   // this method will add an element to the set
   add = (element) => {
     if (!this.has(element)) {
+      // 중복 항목이 없어야 한다
       this.collection.push(element);
       return true;
     }
@@ -45,11 +48,12 @@ class mySet {
       unionSet.add(e);
     });
     secondSet.forEach((e) => {
-      unionSet.add(e);
+      unionSet.add(e); // add 를 이용하기 때문에 중복 항목은 자연스럽게 거른다
     });
     return unionSet;
   };
   // this method will return the intersection of two sets as a new set
+  // 교집합
   intersection = (otherSet) => {
     const intersectionSet = new mySet();
     const firstSet = this.values();
@@ -87,9 +91,9 @@ setB.add("b");
 setB.add("c");
 setB.add("a");
 setB.add("d");
-console.log(setA.subset(setB));
-console.log(setA.intersection(setB).values());
-console.log(setB.difference(setA).values());
+console.log(setA.subset(setB)); // true
+console.log(setA.intersection(setB).values()); // ['a']
+console.log(setB.difference(setA).values()); // ['b', 'c', 'd']
 
 const setC = new Set();
 const setD = new Set();
@@ -98,7 +102,9 @@ setD.add("b");
 setD.add("c");
 setD.add("a");
 setD.add("d");
-console.log(setD.values());
+console.log(setD.values()); // [Set Iterator] {'b', 'c', 'a', 'd'}
+// mySet은 values를 실행하면 배열을 반환하지만
+// 실제 Set는 Iterator를 반환한다
 setD.delete("a");
-console.log(setD.has("a"));
-console.log(setD.add("d"));
+console.log(setD.has("a")); // false
+console.log(setD.add("d")); // Set {'b', 'c', 'd'}
