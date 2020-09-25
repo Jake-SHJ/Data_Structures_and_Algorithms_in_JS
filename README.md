@@ -6,4 +6,5 @@ Data Structures and Algorithms in JavaScript - Full Course for Beginners 을 통
 예시는 es5로 작성되어 있지만, es6로 직접 구현하는 것을 목표로 한다.
 
 [1. stacks](1_stacks.js)  
-[2. sets](2_sets.js)
+[2. sets](2_sets.js)  
+[3. queues](3_queues.js)
