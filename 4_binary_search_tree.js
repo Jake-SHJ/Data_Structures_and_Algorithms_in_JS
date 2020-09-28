@@ -2,6 +2,10 @@
  * Binary Search Tree
  */
 
+// left node 는 parent node 보다 작고,
+// right node 는 parent node 보다 크다. 즉, 중복이 없다
+// 조회, 삽입, 삭제는 트리에 저장된 항목 수의 로그에 비례하여 시간이 걸린다
+// 이진 검색 트리는 선형 구조보다 훨씬 낫지만 해시 테이블보다는 느리다
 class Node {
   constructor(data, left = null, right = null) {
     this.data = data;
@@ -122,6 +126,8 @@ class BST {
     this.root = removeNode(this.root, data);
   }
 
+  // 여기까지 4강 내용
+
   isBalanced() {
     return this.findMinHeight() >= this.findMaxHeight() - 1;
   }
@@ -218,3 +224,42 @@ class BST {
     }
   }
 }
+
+const bst = new BST();
+
+bst.add(4);
+bst.add(2);
+bst.add(6);
+bst.add(1);
+bst.add(3);
+bst.add(5);
+bst.add(7);
+bst.remove(4);
+console.log(bst.findMin()); // 1
+console.log(bst.findMax()); // 7
+bst.remove(7);
+console.log(bst.findMax()); // 6
+console.log(bst.isPresent(4)); // false
+
+// bst.add(9);
+// bst.add(4);
+// bst.add(17);
+// bst.add(3);
+// bst.add(6);
+// bst.add(22);
+// bst.add(5);
+// bst.add(7);
+// bst.add(20);
+
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// bst.add(10);
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// console.log("inOrder: " + bst.inOrder());
+// console.log("preOrder: " + bst.preOrder());
+// console.log("postOrder: " + bst.postOrder());
+
+// console.log("levelOrder: " + bst.levelOrder());
