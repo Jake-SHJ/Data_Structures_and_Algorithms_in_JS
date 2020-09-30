@@ -132,6 +132,8 @@ class BST {
     return this.findMinHeight() >= this.findMaxHeight() - 1;
   }
 
+  // 트리의 높이는 Root node에서 주어진 Leaf node 까지의 거리
+
   findMinHeight(node = this.root) {
     if (node === null) {
       return -1;
@@ -227,39 +229,38 @@ class BST {
 
 const bst = new BST();
 
-bst.add(4);
-bst.add(2);
-bst.add(6);
-bst.add(1);
-bst.add(3);
-bst.add(5);
-bst.add(7);
-bst.remove(4);
-console.log(bst.findMin()); // 1
-console.log(bst.findMax()); // 7
-bst.remove(7);
-console.log(bst.findMax()); // 6
-console.log(bst.isPresent(4)); // false
-
-// bst.add(9);
 // bst.add(4);
-// bst.add(17);
-// bst.add(3);
+// bst.add(2);
 // bst.add(6);
-// bst.add(22);
+// bst.add(1);
+// bst.add(3);
 // bst.add(5);
 // bst.add(7);
-// bst.add(20);
+// bst.remove(4);
+// console.log(bst.findMin()); // 1
+// console.log(bst.findMax()); // 7
+// bst.remove(7);
+// console.log(bst.findMax()); // 6
+// console.log(bst.isPresent(4)); // false
 
-// console.log(bst.findMinHeight());
-// console.log(bst.findMaxHeight());
-// console.log(bst.isBalanced());
-// bst.add(10);
-// console.log(bst.findMinHeight());
-// console.log(bst.findMaxHeight());
-// console.log(bst.isBalanced());
-// console.log("inOrder: " + bst.inOrder());
-// console.log("preOrder: " + bst.preOrder());
-// console.log("postOrder: " + bst.postOrder());
+bst.add(9);
+bst.add(4);
+bst.add(17);
+bst.add(3);
+bst.add(6);
+bst.add(22);
+bst.add(5);
+bst.add(7);
+bst.add(20);
 
-// console.log("levelOrder: " + bst.levelOrder());
+console.log(bst.findMinHeight()); // 1, root node에서 첫번째 leaf node(children이 하나 이상 없는 경우)까지의 거리
+console.log(bst.findMaxHeight()); // 3, root node에서 마지막 leaf node까지의 거리
+console.log(bst.isBalanced()); // false, root node를 기준으로 양 child node가 같은 트리를 가지는 지 여부 확인
+bst.add(10);
+console.log(bst.findMinHeight()); // 2, 17 하위에 10이 생겼기 때문에 첫번째 leaf node는 3 또는 10이 되어 최소 높이는 2가 됨
+console.log(bst.findMaxHeight()); // 3, 변화 없음
+console.log(bst.isBalanced()); // true, root인 9을 기준으로 양쪽의 트리가 같은 구조를 가지게 됨
+console.log("inOrder: " + bst.inOrder()); // 3,4,5,6,7,9,10,17,20,22 트리의 왼쪽에서 오른쪽으로 순서대로 나열
+console.log("preOrder: " + bst.preOrder()); // 9,4,3,6,5,7,17,10,22,20 root를 기준으로 트리를 순차로 내려가면서 root > left (root) > left > right 순으로 내려감
+console.log("postOrder: " + bst.postOrder()); // 3,5,7,6,4,10,20,22,17,9  leaf node 부터 역으로 올라옴
+console.log("levelOrder: " + bst.levelOrder()); // 9,4,17,3,6,10,22,5,7,20 root node를 level 0, 그 다음 줄이 level 1 으로 해서, left/right 구분없이 같은 level 순으로 나열
