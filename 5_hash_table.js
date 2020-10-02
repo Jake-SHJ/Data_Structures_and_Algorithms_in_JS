@@ -2,6 +2,12 @@
  * Hash Table
  */
 
+// 해시 테이블은 map 데이터 구조 또는 객체를 구현하는 일반적인 방법
+// search, insert, delete에 대하여 O(1)의 매우 빠른 속도를 가짐
+// 키 입력을 받아 해시 함수를 통해 실행
+// 문자열을 숫자로 매핑하고 숫자는 배열의 인덱스에 할당
+// 하나의 해시에는 하나의 키만 할당해야 함
+
 const hash = (string, max) => {
   let hash = 0;
   for (const a of string) {
