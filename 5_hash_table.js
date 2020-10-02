@@ -8,6 +8,9 @@
 // 문자열을 숫자로 매핑하고 숫자는 배열의 인덱스에 할당
 // 하나의 해시에는 하나의 키만 할당해야 함
 
+// 참고 자료
+// https://velog.io/@cyranocoding/Hash-Hashing-Hash-Table%ED%95%B4%EC%8B%9C-%ED%95%B4%EC%8B%B1-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%98-%EC%9D%B4%ED%95%B4-6ijyonph6o
+
 const hash = (string, max) => {
   let hash = 0;
   for (const a of string) {
