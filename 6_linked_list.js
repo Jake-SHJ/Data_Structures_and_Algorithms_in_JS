@@ -6,19 +6,18 @@ class LinkedList {
   constructor() {
     this.length = 0;
     this.head = null;
+    this.Node = (element) => {
+      this.element = element;
+      this.next = null;
+    };
   }
-
-  Node = (element) => {
-    this.element = element;
-    this.next = null;
-  };
 
   size = () => {
     return this.length;
   };
 
   head = () => {
-    return head;
+    return this.head;
   };
 
   add = (element) => {
@@ -34,6 +33,7 @@ class LinkedList {
 
       currentNode.next = node;
     }
+    this.length++;
   };
 
   remove = (element) => {
