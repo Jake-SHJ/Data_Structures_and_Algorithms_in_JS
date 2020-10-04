@@ -2,14 +2,14 @@
  * Linked List
  */
 
+function Node(element) {
+  this.element = element;
+  this.next = null;
+}
 class LinkedList {
   constructor() {
     this.length = 0;
     this.head = null;
-    this.Node = (element) => {
-      this.element = element;
-      this.next = null;
-    };
   }
 
   size = () => {
@@ -21,24 +21,25 @@ class LinkedList {
   };
 
   add = (element) => {
-    const node = this.Node(element);
+    const node = new Node(element);
+
     if (this.head == null) {
       this.head = node;
     } else {
       let currentNode = this.head;
-
       while (currentNode.next) {
         currentNode = currentNode.next;
       }
-
       currentNode.next = node;
     }
+
     this.length++;
   };
 
   remove = (element) => {
     let currentNode = this.head;
     let previousNode;
+
     if (currentNode.element === element) {
       this.head = currentNode.next;
     } else {
@@ -48,6 +49,7 @@ class LinkedList {
       }
       previousNode.next = currentNode.next;
     }
+
     this.length--;
   };
 
@@ -73,15 +75,17 @@ class LinkedList {
   elementAt = (index) => {
     let currentNode = this.head;
     let count = 0;
+
     while (count < index) {
       count++;
       currentNode = currentNode.next;
     }
+
     return currentNode.element;
   };
 
   addAt = (index, element) => {
-    const node = this.Node(element);
+    const node = new Node(element);
 
     let currentNode = this.head;
     let previousNode;
@@ -125,6 +129,7 @@ class LinkedList {
       }
       previousNode.next = currentNode.next;
     }
+
     this.length--;
     return currentNode.element;
   };
