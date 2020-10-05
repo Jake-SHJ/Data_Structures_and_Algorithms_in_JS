@@ -34,6 +34,8 @@ class LinkedList {
       this.head = node;
     } else {
       let currentNode = this.head;
+
+      // 다음 항목이 없는 경우 즉, currentNode.next가 null일때
       while (currentNode.next) {
         currentNode = currentNode.next;
       }
@@ -102,10 +104,12 @@ class LinkedList {
       return false;
     }
 
+    // head에 node 추가
     if (index === 0) {
       node.next = currentNode;
       this.head = node;
     } else {
+      // head가 아닌 index에 node 추가
       while (currentIndex < index) {
         currentIndex++;
         previousNode = currentNode;
@@ -122,13 +126,16 @@ class LinkedList {
     let previousNode;
     let currentIndex = 0;
 
+    // index의 범위를 이탈한 경우
     if (index < 0 || index >= this.length) {
       return null;
     }
 
+    // head의 index인 경우
     if (index === 0) {
       this.head = currentNode.next;
     } else {
+      // head 이외의 index인 경우
       while (currentIndex < index) {
         currentIndex++;
         previousNode = currentNode;
