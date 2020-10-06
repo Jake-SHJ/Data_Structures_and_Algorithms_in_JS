@@ -31,4 +31,17 @@ class Trie {
       return this.add(input.substr(1), node.keys.get(input[0]));
     }
   };
+
+  isWord = (word) => {
+    let node = this.root;
+    while (word.length > 1) {
+      if (!node.keys.has(word[0])) {
+        return false;
+      } else {
+        node = node.keys.get(word[0]);
+        word = word.substr(1);
+      }
+    }
+    return node.keys.has(word) && node.keys.get(word).isEnd() ? true : false;
+  };
 }
