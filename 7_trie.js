@@ -44,4 +44,23 @@ class Trie {
     }
     return node.keys.has(word) && node.keys.get(word).isEnd() ? true : false;
   };
+
+  print = () => {
+    let words = new Array();
+    let search = (node, string) => {
+      if (node.keys.size != 0) {
+        for (let letter of node.keys.keys()) {
+          search(node.keys.get(letter), string.concat(letter));
+        }
+        if (node.isEnd()) {
+          words.push(string);
+        }
+      } else {
+        string.length > 0 ? words.push(string) : undefined;
+        return;
+      }
+    };
+    search(this.root, new String());
+    return words.length > 0 ? words : mo;
+  };
 }
