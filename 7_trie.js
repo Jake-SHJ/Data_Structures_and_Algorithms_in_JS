@@ -26,9 +26,9 @@ class Trie {
       return;
     } else if (!node.keys.has(input[0])) {
       node.keys.set(input[0], new Node());
-      return this.add(input.substr(1), node.keys.get(input[0]));
+      return this.add(input.substring(1), node.keys.get(input[0]));
     } else {
-      return this.add(input.substr(1), node.keys.get(input[0]));
+      return this.add(input.substring(1), node.keys.get(input[0]));
     }
   };
 
@@ -39,7 +39,7 @@ class Trie {
         return false;
       } else {
         node = node.keys.get(word[0]);
-        word = word.substr(1);
+        word = word.substring(1);
       }
     }
     return node.keys.has(word) && node.keys.get(word).isEnd() ? true : false;
@@ -64,3 +64,17 @@ class Trie {
     return words.length > 0 ? words : mo;
   };
 }
+
+myTrie = new Trie();
+myTrie.add("ball");
+myTrie.add("bat");
+myTrie.add("doll");
+myTrie.add("dork");
+myTrie.add("do");
+myTrie.add("dorm");
+myTrie.add("send");
+myTrie.add("sense");
+console.log(myTrie.isWord("doll"));
+console.log(myTrie.isWord("dor"));
+console.log(myTrie.isWord("dorf"));
+console.log(myTrie.print());
