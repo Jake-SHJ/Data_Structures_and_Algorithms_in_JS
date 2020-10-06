@@ -10,4 +10,5 @@ Data Structures and Algorithms in JavaScript - Full Course for Beginners 을 통
 [3. queues](3_queues.js)  
 [4. binary search tree](4_binary_search_tree.js)  
 [5. hash table](5_hash_table.js)  
-[6. linked list](6_linked_list.js)
+[6. linked list](6_linked_list.js)  
+[7. trie](7_trie.js)
