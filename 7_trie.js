@@ -9,12 +9,12 @@
 class Node {
   constructor() {
     this.keys = new Map();
-    this.end = false;
+    this.end = false; // 단어의 끝인지 여부
     this.setEnd = () => {
-      this.end = true;
+      this.end = true; // 단어의 끝을 지정
     };
     this.isEnd = () => {
-      return this.end;
+      return this.end; // 단어의 끝 확인
     };
   }
 }
