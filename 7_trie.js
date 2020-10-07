@@ -2,6 +2,10 @@
  * Trie Data Structure
  */
 
+// Trie에서 데이터를 저장하는 연관 데이터 구조의 각 단계는 Trie의 node임
+// 문자열을 만들기 위해 합칠 수 있는 글자 수가 한정되어 있기 때문에 주로 단어를 저장하는데 사용됨 ex) 단어가 사전에 있는지 확인하는 것
+// 각 단계 또는 node는 단어의 한 글자를 나타냄
+
 class Node {
   constructor() {
     this.keys = new Map();
