@@ -25,28 +25,33 @@ class Trie {
   }
 
   add = (input, node = this.root) => {
+    // node를 전달하지 않으면 root를 기본 node로 사용
     if (input.length == 0) {
       node.setEnd();
       return;
     } else if (!node.keys.has(input[0])) {
+      // 들어온 문자열의 첫번째 단어가 root의 직속 하위 node (key)에 없다면
       node.keys.set(input[0], new Node());
-      return this.add(input.substring(1), node.keys.get(input[0]));
+      // 새로운 키로 지정
+      return this.add(input.substring(1), node.keys.get(input[0])); // 재귀 함수
+      // 첫번째 단어를 제거하고 다시 add 반복
     } else {
-      return this.add(input.substring(1), node.keys.get(input[0]));
+      return this.add(input.substring(1), node.keys.get(input[0])); // 재귀 함수
     }
   };
 
+  // 모든 단어를 확인할 필요가 없기 때문에 다른 데이터 구조보다 Trie에서 훨씬 빠름
   isWord = (word) => {
     let node = this.root;
     while (word.length > 1) {
       if (!node.keys.has(word[0])) {
         return false;
       } else {
-        node = node.keys.get(word[0]);
-        word = word.substring(1);
+        node = node.keys.get(word[0]); // node.key중에 word[0]이 있는 경우이기 때문에 찾는 범위를 이 key로 한정
+        word = word.substring(1); // 첫번째 단어를 제거
       }
     }
-    return node.keys.has(word) && node.keys.get(word).isEnd() ? true : false;
+    return node.keys.has(word) && node.keys.get(word).isEnd() ? true : false; // 키가 word를 가지고 있고, 그 word가 마지막일 때 true(즉, 마지막 단어가 존재하면 true)
   };
 
   print = () => {
@@ -78,7 +83,7 @@ myTrie.add("do");
 myTrie.add("dorm");
 myTrie.add("send");
 myTrie.add("sense");
-console.log(myTrie.isWord("doll"));
-console.log(myTrie.isWord("dor"));
-console.log(myTrie.isWord("dorf"));
-console.log(myTrie.print());
+console.log(myTrie.isWord("doll")); // true
+console.log(myTrie.isWord("dor")); // false 없는 단어
+console.log(myTrie.isWord("dorf")); // false 없는 단어
+console.log(myTrie.print()); // ['ball', 'bat', 'doll', 'dork', 'dorm', 'do', 'send', 'sense'];
