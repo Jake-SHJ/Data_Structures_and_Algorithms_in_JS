@@ -6,6 +6,10 @@
 // right child: i * 2 + 1
 // parent: i / 2
 
+// binary heap은 heap 속성을 충족하는 부분적으로 정렬된 이진 트리
+// MaxHeap은 상위에 가장 큰 숫자 최하위에 가장 작은 숫자
+// MinHeap은 모든 하위 노드가 상위 노드보다 크거나 같음
+
 class MinHeap {
   constructor() {
     this.heap = [null];
@@ -15,15 +19,15 @@ class MinHeap {
     this.heap.push(num);
     if (this.heap.length > 2) {
       let idx = this.heap.length - 1;
-      const FLOOR_HALF_IDX = Math.floor(idx / 2);
-      while (this.heap[idx] < this.heap[FLOOR_HALF_IDX]) {
+      const PARENT_NODE = Math.floor(idx / 2);
+      while (this.heap[idx] < this.heap[PARENT_NODE]) {
         if (idx >= 1) {
-          [this.heap[FLOOR_HALF_IDX], this.heap[idx]] = [
+          [this.heap[PARENT_NODE], this.heap[idx]] = [
             this.heap[idx],
-            this.heap[FLOOR_HALF_IDX],
+            this.heap[PARENT_NODE],
           ];
-          if (FLOOR_HALF_IDX > 1) {
-            idx = FLOOR_HALF_IDX;
+          if (PARENT_NODE > 1) {
+            idx = PARENT_NODE;
           } else {
             break;
           }
@@ -91,15 +95,15 @@ class MaxHeap {
     this.heap.push(num);
     if (this.heap.length > 2) {
       let idx = this.heap.length - 1;
-      const FLOOR_HALF_IDX = Math.floor(idx / 2);
-      while (this.heap[idx] > this.heap[FLOOR_HALF_IDX]) {
+      const PARENT_NODE = Math.floor(idx / 2);
+      while (this.heap[idx] > this.heap[PARENT_NODE]) {
         if (idx >= 1) {
-          [this.heap[FLOOR_HALF_IDX], this.heap[idx]] = [
+          [this.heap[PARENT_NODE], this.heap[idx]] = [
             this.heap[idx],
-            this.heap[FLOOR_HALF_IDX],
+            this.heap[PARENT_NODE],
           ];
-          if (FLOOR_HALF_IDX > 1) {
-            idx = FLOOR_HALF_IDX;
+          if (PARENT_NODE > 1) {
+            idx = PARENT_NODE;
           } else {
             break;
           }
