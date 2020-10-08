@@ -15,15 +15,15 @@ class MinHeap {
     this.heap.push(num);
     if (this.heap.length > 2) {
       let idx = this.heap.length - 1;
-      const floorHalfIdx = Math.floor(idx / 2);
-      while (this.heap[idx] < this.heap[floorHalfIdx]) {
+      const FLOOR_HALF_IDX = Math.floor(idx / 2);
+      while (this.heap[idx] < this.heap[FLOOR_HALF_IDX]) {
         if (idx >= 1) {
-          [this.heap[floorHalfIdx], this.heap[idx]] = [
+          [this.heap[FLOOR_HALF_IDX], this.heap[idx]] = [
             this.heap[idx],
-            this.heap[floorHalfIdx],
+            this.heap[FLOOR_HALF_IDX],
           ];
-          if (floorHalfIdx > 1) {
-            idx = floorHalfIdx;
+          if (FLOOR_HALF_IDX > 1) {
+            idx = FLOOR_HALF_IDX;
           } else {
             break;
           }
@@ -91,15 +91,15 @@ class MaxHeap {
     this.heap.push(num);
     if (this.heap.length > 2) {
       let idx = this.heap.length - 1;
-      const floorHalfIdx = Math.floor(idx / 2);
-      while (this.heap[idx] > this.heap[floorHalfIdx]) {
+      const FLOOR_HALF_IDX = Math.floor(idx / 2);
+      while (this.heap[idx] > this.heap[FLOOR_HALF_IDX]) {
         if (idx >= 1) {
-          [this.heap[floorHalfIdx], this.heap[idx]] = [
+          [this.heap[FLOOR_HALF_IDX], this.heap[idx]] = [
             this.heap[idx],
-            this.heap[floorHalfIdx],
+            this.heap[FLOOR_HALF_IDX],
           ];
-          if (floorHalfIdx > 1) {
-            idx = floorHalfIdx;
+          if (FLOOR_HALF_IDX > 1) {
+            idx = FLOOR_HALF_IDX;
           } else {
             break;
           }
