@@ -26,6 +26,7 @@ class MinHeap {
             this.heap[idx],
             this.heap[PARENT_NODE],
           ];
+          // parent node가 root node가 아닌 경우
           if (PARENT_NODE > 1) {
             idx = PARENT_NODE;
           } else {
@@ -37,10 +38,10 @@ class MinHeap {
   };
 
   remove = () => {
-    let smallest = this.heap[1];
+    let smallest = this.heap[1]; // index 0 은 null이다
     if (this.heap.length > 2) {
-      this.heap[1] = this.heap[this.heap.length - 1];
-      this.heap.splice(this.heap.length - 1);
+      this.heap[1] = this.heap[this.heap.length - 1]; // 배열의 마지막 노드가 배열의 첫번째 노드로 이동
+      this.heap.splice(this.heap.length - 1); // 배열을 1만큼 단축
       if (this.heap.length == 3) {
         if (this.heap[1] > this.heap[2]) {
           [this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]];
@@ -86,7 +87,7 @@ class MinHeap {
 
 class MaxHeap {
   constructor() {
-    this.heap = [null];
+    this.heap = [null]; // index 0 = null
   }
 
   print = () => this.heap;
