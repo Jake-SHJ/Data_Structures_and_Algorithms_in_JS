@@ -12,4 +12,5 @@ Data Structures and Algorithms in JavaScript - Full Course for Beginners 을 통
 [5. hash table](5_hash_table.js)  
 [6. linked list](6_linked_list.js)  
 [7. trie](7_trie.js)  
-[8. heaps](8_heaps.js)
+[8. heaps](8_heaps.js)  
+[9. graphs](9_graphs.js)
