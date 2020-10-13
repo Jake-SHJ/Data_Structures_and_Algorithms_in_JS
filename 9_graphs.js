@@ -22,6 +22,23 @@ const undirectedGArr = [
   [1], // Node C
 ];
 
+// Adjacency Matrix (인접 행렬) - 각 중첩 배열이 동일한 수의 2차원 배열
+// 0은 가장자리 또는 관계가 없음, 1은 관계가 있음을 의미
+
+// 무방향 배열
+const adjMat = [
+  [0, 1, 0],
+  [1, 0, 1],
+  [0, 1, 0],
+];
+// 방향성을 주면
+const adjMat = [
+  [0, 0, 0], // a
+  [1, 0, 0], // b
+  [0, 1, 0], // c
+];
+// b는 a를 향하고, c는 b를 향하는 형태
+
 function bfs(graph, root) {
   const nodesLen = {};
 
