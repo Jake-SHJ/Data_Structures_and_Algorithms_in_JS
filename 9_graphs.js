@@ -60,10 +60,10 @@ function bfs(graph, root) {
   const nodesLen = {};
 
   for (let i = 0; i < graph.length; i++) {
-    nodesLen[i] = Infinity;
+    nodesLen[i] = Infinity; // 시작은 무한대로 간주, 시작 노드에서 탐색 대상 노드에 연결되어 있지 않으면 무한대 도출
   }
 
-  nodesLen[root] = 0;
+  nodesLen[root] = 0; // 루트 노드에서 루트 노드까지의 거리는 0
 
   const queue = [root];
   let current;
@@ -73,13 +73,15 @@ function bfs(graph, root) {
 
     const curConnected = graph[current];
     const neighborIdx = [];
-    let idx = curConnected.indexOf(1);
+    let idx = curConnected.indexOf(1); // 연결된 노드를 찾는다
     while (idx != -1) {
+      // 음수이면 연결되어 있지 않은 것
       neighborIdx.push(idx);
       idx = curConnected.indexOf(1, idx + 1);
     }
 
     for (let j = 0; j < neighborIdx.length; j++) {
+      // 해당 노드의 거리를 아직 설정하지 않았을 때
       if (nodesLen[neighborIdx[j]] == Infinity) {
         nodesLen[neighborIdx[j]] = nodesLen[current] + 1;
         queue.push(neighborIdx[j]);
